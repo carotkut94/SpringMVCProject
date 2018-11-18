@@ -19,8 +19,9 @@ public class BookServiceImpl implements BookService {
         return bookDAO.saveBook(book);
     }
 
+    @Transactional
     public Book getBook(long id) {
-        return null;
+        return bookDAO.getBook(id);
     }
 
     @Transactional
@@ -28,11 +29,13 @@ public class BookServiceImpl implements BookService {
         return bookDAO.getAllBooks();
     }
 
+    @Transactional
     public void update(long id, Book book) {
-
+        bookDAO.update(id, book);
     }
 
+    @Transactional
     public void deleteBook(long id) {
-
+        bookDAO.deleteBook(id);
     }
 }

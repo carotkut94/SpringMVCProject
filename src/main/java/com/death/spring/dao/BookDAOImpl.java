@@ -1,6 +1,7 @@
 package com.death.spring.dao;
 
 import com.death.spring.model.Book;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,7 @@ public class BookDAOImpl implements BookDAO {
     }
 
     public Book getBook(long id) {
-        return null;
+        return sessionFactory.getCurrentSession().get(Book.class, id);
     }
 
     public List<Book> getAllBooks() {
@@ -31,10 +32,16 @@ public class BookDAOImpl implements BookDAO {
     }
 
     public void update(long id, Book book) {
-
+        Session session = sessionFactory.getCurrentSession();
+        Book oldBook = session.byId(Book.class).load(id);
+        oldBook.setTitle(book.getTitle());
+        oldBook.setAuthor(book.getAuthor());
+        session.flush();
     }
 
     public void deleteBook(long id) {
-
+        Session session = sessionFactory.getCurrentSession();
+        Book book = session.byId(Book.class).load(id);
+        session.delete(book);
     }
 }
