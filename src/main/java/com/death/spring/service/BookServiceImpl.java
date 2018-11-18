@@ -14,8 +14,9 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookDAO bookDAO;
 
-    public long saveRecord(Book book) {
-        return 0;
+    @Transactional
+    public long saveBook(Book book) {
+        return bookDAO.saveBook(book);
     }
 
     public Book getBook(long id) {

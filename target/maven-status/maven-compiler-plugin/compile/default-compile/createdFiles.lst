@@ -1,9 +1,4 @@
-com\death\spring\service\BookService.class
-com\death\spring\dao\BookDAOImpl.class
-com\death\spring\controller\BookController.class
-com\death\spring\service\BookServiceImpl.class
 com\death\spring\config\WebConfig.class
 com\death\spring\dao\BookDAO.class
-com\death\spring\config\WebAppInitializer.class
+com\death\spring\service\BookService.class
 com\death\spring\model\Book.class
-com\death\spring\config\AppConfig.class

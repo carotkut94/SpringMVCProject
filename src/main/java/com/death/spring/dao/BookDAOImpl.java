@@ -13,8 +13,9 @@ public class BookDAOImpl implements BookDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public long saveRecord(Book book) {
-        return 0;
+    public long saveBook(Book book) {
+        sessionFactory.getCurrentSession().save(book);
+        return book.getId();
     }
 
     public Book getBook(long id) {
